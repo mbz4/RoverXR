@@ -1,4 +1,9 @@
 import socket
+
+'''
+TCP SERVER ON Raspberry Pi
+'''
+
 host = '0.0.0.0'
 port = 3333
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
