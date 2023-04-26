@@ -1,0 +1,73 @@
+[gd_scene load_steps=14 format=3 uid="uid://c8t1enhhx25vu"]
+
+[ext_resource type="Script" path="res://src/Main.gd" id="1_ptuyj"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_jyol2"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_0xlr7"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_dorh8"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="4_8oumi"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_cun11"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="5_m8yxu"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_n3n0l"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="8_nxun6"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="9_jejfi"]
+[ext_resource type="PackedScene" uid="uid://bmnr7h3tcikxw" path="res://src/video_player.tscn" id="10_geogt"]
+[ext_resource type="PackedScene" uid="uid://ntckrl6x0i3x" path="res://src/world_AR.tscn" id="11_0o157"]
+[ext_resource type="PackedScene" uid="uid://dgdb1texynduw" path="res://addons/godot-xr-tools/objects/virtual_keyboard.tscn" id="12_oemma"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_ptuyj")
+
+[node name="Player" type="XROrigin3D" parent="."]
+transform = Transform3D(-3.93402e-07, 0, 1, 0, 1, 0, -1, 0, -3.93402e-07, -0.157173, 0.571223, 0.603524)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="Player"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.49665, 0.906092, 0.00801064)
+current = true
+
+[node name="LeftHand" type="XRController3D" parent="Player"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.919273, -0.167444, -0.626715)
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="LeftHand" parent="Player/LeftHand" instance=ExtResource("2_jyol2")]
+
+[node name="MovementDirect" parent="Player/LeftHand" instance=ExtResource("3_dorh8")]
+strafe = true
+
+[node name="FunctionPickup" parent="Player/LeftHand" instance=ExtResource("4_cun11")]
+grab_distance = 0.1
+
+[node name="RightHand" type="XRController3D" parent="Player"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.04036, -0.0717368, 0.68617)
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="RightHand" parent="Player/RightHand" instance=ExtResource("3_0xlr7")]
+
+[node name="MovementDirect" parent="Player/RightHand" instance=ExtResource("3_dorh8")]
+
+[node name="MovementTurn" parent="Player/RightHand" instance=ExtResource("5_m8yxu")]
+
+[node name="FunctionPickup" parent="Player/RightHand" instance=ExtResource("4_cun11")]
+grab_distance = 0.1
+
+[node name="PlayerBody" parent="Player" instance=ExtResource("5_n3n0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1631, 0, 0.0354273)
+
+[node name="FunctionPointer" parent="Player" instance=ExtResource("8_nxun6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -3.8743e-07)
+
+[node name="VideoScreen" parent="." instance=ExtResource("9_jejfi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.27799, 4.4483)
+screen_size = Vector2(4, 3)
+viewport_size = Vector2(1920, 1080)
+scene = ExtResource("10_geogt")
+
+[node name="ARworld" parent="." instance=ExtResource("11_0o157")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+
+[node name="VirtualKeyboard" parent="." instance=ExtResource("12_oemma")]
+transform = Transform3D(-1, 0, -8.74228e-08, -3.69617e-08, 0.906227, 0.422792, 7.92248e-08, 0.422792, -0.906227, 0, 0.458861, 3.46085)
+
+[node name="StartXR" parent="." instance=ExtResource("4_8oumi")]
+enable_passthrough = true
