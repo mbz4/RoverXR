@@ -1,0 +1,21 @@
+1. declaring variables:
+can use var variable_name: variable type
+var tcp_connection: StreamPeerTCP = StreamPeerTCP.new()
+
+2. leave the _ready function alone
+
+3. how to add a signal definition (at the top of the script):
+signal signal_name(variables, to, pass, ...)
+
+4. use _process func (per frame exec: equivalent to polling perhaps)
+invoking tcp_conn.get_available_bytes()
+... if > 0 ==> invoke get_data...
+... if data > 0...
+🙂
+else:
+😦
+
+5. if tcp_conn is lost
+set process false 
+
+6. match statement is a thing
