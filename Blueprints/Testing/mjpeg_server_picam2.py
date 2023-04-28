@@ -11,7 +11,7 @@ from http import server
 from threading import Condition
 
 from picamera2 import Picamera2
-from picamera2.mjpeg_encoder import MJPEGEncoder
+from picamera2.encoders import MJPEGEncoder
 from picamera2.outputs import FileOutput
 
 PAGE = """\
