@@ -1,10 +1,8 @@
 from websockets.server import serve
 import asyncio
-
 '''
 WS CLIENT ON LAPTOP
 '''
-
 async def echo(websocket):
     async for message in websocket:
         message = message.decode("utf-8")
