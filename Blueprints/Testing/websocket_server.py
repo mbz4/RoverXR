@@ -2,7 +2,7 @@
 from websockets.server import serve
 import asyncio
 '''
-WS CLIENT ON LAPTOP
+WS SERVER DEMO
 '''
 async def echo(websocket):
     async for message in websocket:
