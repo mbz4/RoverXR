@@ -19,9 +19,10 @@ async def handle_stream(websocket):
                 print("No data")
                 break        
             if data.startswith(marker): # start of JPEG frame
+                print("Start of JPEG frame")
                 while True:
-                    print("Reading frame")
                     data = sys.stdin.buffer.readline()
+                    print(data)
                     image_buffer.seek(0)
                     image_buffer.write(data)
                     image_buffer.truncate()
