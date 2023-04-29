@@ -19,7 +19,7 @@ async def handle_stream(websocket):
                 frame = bytearray()
                 while True:
                     data = sys.stdin.buffer.readline()
-                    if data.startswith(trailer):
+                    if data.endswith(trailer):
                         frame.extend(data)
                         await websocket.send(frame)
                         print("Sent frame to client")
