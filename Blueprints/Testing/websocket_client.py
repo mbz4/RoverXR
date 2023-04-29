@@ -7,8 +7,7 @@ WS CLIENT ON LAPTOP
 
 def hello():
     with connect("ws://192.168.199.228:3333") as websocket:
-        #websocket.send("Hello world!")
-        message = websocket.recv()
-        print(f"Received: {message}")
+        message = websocket.recv().decode('utf-8')
+        print(message)
 
 hello()
