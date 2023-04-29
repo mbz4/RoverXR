@@ -40,7 +40,7 @@ async def handle_stream(websocket):
 
 async def main():
     try:
-        async with serve(handle_stream, "0.0.0.0", 3333, max_size = 3145728):
+        async with serve(handle_stream, "0.0.0.0", 3333, ping_interval=None, max_size = 3145728):
             print('\033[2;31;43mServer started\033[0;0m')
             await asyncio.Future()
     except KeyboardInterrupt:
