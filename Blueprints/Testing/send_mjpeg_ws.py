@@ -29,7 +29,7 @@ async def send_mjpeg_stream(websocket):
         pass
 
 async def main():
-    async with websockets.serve(send_mjpeg_stream, 'localhost', 3333) as websocket:
+    async with websockets.serve(send_mjpeg_stream, '0.0.0.0', 3333) as websocket:
         await asyncio.Future()  # run forever
 
 if __name__ == '__main__':
