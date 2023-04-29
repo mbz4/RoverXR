@@ -7,7 +7,7 @@ import io
     Intended to be run from terminal as: 
     raspivid -vf -hf -fps 30 -t 0 -l -w 1920 -h 1080 --codec MJPEG -o - | python3 send_mjpeg_ws.py
 '''
-async def send_mjpeg_stream(websocket):
+async def handle_stream(websocket):
     try:
         marker = b'\xff\xd8'
         trailer = b'\xff\xd9'
@@ -35,7 +35,7 @@ async def send_mjpeg_stream(websocket):
 
 async def main():
     print("MJPEG WS Server started...")
-    async with websockets.serve(send_mjpeg_stream, '0.0.0.0', 3333): # start server on host, port
+    async with websockets.serve(handle_stream, '0.0.0.0', 3333): # start server on host, port
         await asyncio.Future() # run forever
 
 if __name__ == '__main__':
