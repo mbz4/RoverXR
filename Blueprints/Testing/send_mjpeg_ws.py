@@ -22,14 +22,14 @@ async def handle_stream(websocket):
                 print("Start of JPEG frame")
                 while True:
                     data = sys.stdin.buffer.readline()
-                    print(data)
+                    # print(data)
                     image_buffer.seek(0)
                     image_buffer.write(data)
                     image_buffer.truncate()
                     frame = image_buffer.getvalue()
                     if data.startswith(trailer): # end of JPEG frame
                         await websocket.send(frame)
-                        print("\n\n\t\tSent frame\n\n")
+                        print("\n\tSent frame\n")
                         break
     except websockets.exceptions.ConnectionClosedError:
         pass
