@@ -8,27 +8,13 @@
 
 import io
 import logging
-import socketserver
-from http import server
+from websockets.server import serve
+import asyncio
 from threading import Condition
-
 from picamera2 import Picamera2
 from picamera2.encoders import MJPEGEncoder, Quality
 from picamera2.outputs import FileOutput
 from libcamera import controls
-from libcamera import Transform
-
-PAGE = """\
-<html>
-<head>
-<title>picamera2 MJPEG streaming demo</title>
-</head>
-<body>
-<h1>Picamera2 MJPEG Streaming Demo</h1>
-<img src="stream.mjpg" width="1920" height="1080" />
-</body>
-</html>
-"""
 
 
 class StreamingOutput(io.BufferedIOBase):
@@ -88,9 +74,8 @@ class StreamingServer(socketserver.ThreadingMixIn, server.HTTPServer):
 
 #picam setup
 picam2 = Picamera2()
-# picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
-# picam2.video_configuration.controls.FrameRate = 30.0
-picam2.configure(picam2.create_video_configuration(main={"size": (1920, 1080)}, transform=Transform(hflip=1, vflip=1))) # defaul framerate=30fps
+picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
+picam2.configure(picam2.create_video_configuration(main={"size": (1920, 1080)})) # defaul framerate=30fps
 output = StreamingOutput()
 picam2.start_recording(MJPEGEncoder(), FileOutput(output), Quality.LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
 

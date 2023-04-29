@@ -5,8 +5,8 @@ import sys
 
 async def send_mjpeg_stream(websocket):
     try:
-        boundary = b'--myboundary\r\n'
-        header = b'Content-Type: image/jpeg\r\n\r\n'
+        boundary = b'\xff\xd8\r\n'
+        header = b'--FRAME\r\n\r\n'
         while True:
             # Read from stdin until we find a boundary marker
             data = sys.stdin.buffer.readline()
