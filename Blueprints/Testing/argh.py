@@ -23,12 +23,14 @@ class StreamingOutput(io.BufferedIOBase):
     def write(self, buf):
         with self.condition:
             self.frame = buf
+            print("Frame written")
             self.condition.notify_all()
 
 picam2 = Picamera2()
 picam2.configure(picam2.create_video_configuration(main={"size": (1920, 1080)}, transform=Transform(hflip=1, vflip=1))) 
 output = StreamingOutput()
 picam2.start_recording(MJPEGEncoder(), FileOutput(output), Quality.LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
+print("Recording started")
 
 async def handle_stream(websocket):
     global output
@@ -48,7 +50,7 @@ async def handle_stream(websocket):
 
 async def main():
     try:
-        async with serve(handle_stream, "localhost", 3333):
+        async with serve(handle_stream, "0.0.0.0", 3333):
             print("Server started")
             await asyncio.Future()
     except KeyboardInterrupt:
