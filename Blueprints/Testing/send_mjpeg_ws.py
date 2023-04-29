@@ -9,14 +9,13 @@ import io
 '''
 async def handle_stream(websocket):
     try:
-        marker = b'\xff\xd8\r\n'
-        trailer = b'\xff\xd9\r\n\r\n'
+        marker = b'\xff\xd8'
+        trailer = b'\xff\xd9'
         while True:
             image_buffer = io.BytesIO()
             data = sys.stdin.buffer.readline() # Read from stdin until boundary marker
             # print(data)
             if not data:
-                print("No data")
                 break        
             if data.startswith(marker): # start of JPEG frame
                 print("Start of JPEG frame")
