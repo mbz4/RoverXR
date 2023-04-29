@@ -44,6 +44,25 @@
 | 4     | M3   | 12mm   |
 | 4     | M3   | 8mm    |
 
+3. flash firmware, can use Arduino IDE (M5 Stick C library)
+
+- connect rover M5 Stick C to PC
+- open & flash:
+
+`Blueprints/rover_FW/Master/Master.ino`
+
+- disconnect from PC and install Master Stick to Rover
+- connect remote M5 Stick C to PC
+- open & flash:
+
+`Blueprints/rover_FW/Remote/Remote.ino`
+
+- disconnect from PC and install Remote Stick to Remote Controller
+- use power switches on remote & rover
+- press and hold for 4 seconds the lower left side button on both M5 Stick C's to turn them on
+- press and hold for 4 seconds the 'M5' button on Remote controller, once the Master MAC address is shown
+- rover can now be remotely operated using remote
+
 ## To-Do:
 
 - add godot setup instructions
