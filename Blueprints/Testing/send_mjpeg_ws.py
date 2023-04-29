@@ -14,6 +14,7 @@ async def send_mjpeg_stream(websocket):
         while True:
             image_buffer = io.BytesIO()
             data = sys.stdin.buffer.readline() # Read from stdin until boundary marker
+            print(data)
             if not data:
                 break        
             if data.startswith(marker): # start of JPEG frame
@@ -25,6 +26,7 @@ async def send_mjpeg_stream(websocket):
                     frame = image_buffer.getvalue()
                     if data.startswith(trailer): # end of JPEG frame
                         await websocket.send(frame)
+                        print("\n\n\t\tSent frame\n\n")
                         break
     except websockets.exceptions.ConnectionClosedError:
         pass
