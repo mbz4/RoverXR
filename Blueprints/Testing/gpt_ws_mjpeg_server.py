@@ -2,6 +2,7 @@ import io
 import logging
 import threading
 import picamera
+import datetime
 from websocket_server import WebsocketServer
 from threading import Condition
 
@@ -45,8 +46,10 @@ class MJPEGOutput(object):
             if hasattr(self, 'output'):
                 self.streamer.send_frame(self.output)
             self.output = io.BytesIO()
-        self.output.write(buf)
-
+            stream.write(buf)
+            self.output.write(stream.getvalue())
+        else:
+            self.output.write(buf)
 
 # Define a camera thread class
 class CameraThread(threading.Thread):
@@ -99,10 +102,10 @@ if __name__ == '__main__':
             pass
     except KeyboardInterrupt:
         pass
-    finally:
-        # Stop MJPEG streaming
-        streamer.stop()
 
-        # Stop camera thread
-        camera_thread.stop()
-        camera_thread.join()
+    # Stop MJPEG streaming
+    streamer.stop()
+
+    # Stop camera thread
+    camera_thread.stop()
+    camera_thread.join()
