@@ -8,8 +8,8 @@ import sys
 '''
 async def handle_stream(websocket):
     try:
-        marker = b'\xff\xd8'
-        trailer = b'\xff\xd9'
+        marker = b'\xff\xd8\r\n'
+        trailer = b'\xff\xd9\r\n'
         while True:
             data = sys.stdin.buffer.readline()
             if not data:
