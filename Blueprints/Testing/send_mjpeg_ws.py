@@ -29,9 +29,8 @@ async def send_mjpeg_stream(websocket):
         pass
 
 async def main():
-    uri = f'ws://localhost:3333'
-    async with websockets.connect(uri) as websocket:
-        await send_mjpeg_stream(websocket)
+    async with websockets.serve(send_mjpeg_stream, 'localhost', 3333) as websocket:
+        await asyncio.Future()  # run forever
 
 if __name__ == '__main__':
     asyncio.run(main())
