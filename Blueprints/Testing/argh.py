@@ -82,13 +82,6 @@ async def handle_stream(websocket):
                 output.condition.wait()
                 frame = output.frame
             await websocket.send(frame)
-            
-            # self.wfile.write(b'--FRAME\r\n')
-            # self.send_header('Content-Type', 'image/jpeg')
-            # self.send_header('Content-Length', len(frame))
-            # self.end_headers()
-            # self.wfile.write(frame)
-            # self.wfile.write(b'\r\n')
     except Exception as e:
         logging.warning('Removed streaming client %s: %s', client_address, str(e))
     
