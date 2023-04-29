@@ -9,6 +9,7 @@ import sys
 async def handle_stream(websocket):
     try:
         marker = b'\xff\xd8'
+        trailer = b'\xff\xd9'
         while True:
             data = sys.stdin.buffer.readline()
             if not data:
@@ -18,7 +19,8 @@ async def handle_stream(websocket):
                 frame = bytearray()
                 while True:
                     data = sys.stdin.buffer.readline()
-                    if data.startswith(marker):
+                    if data.startswith(trailer):
+                        frame.extend(data)
                         await websocket.send(frame)
                         print("Sent frame to client")
                         break
