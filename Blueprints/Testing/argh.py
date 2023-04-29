@@ -41,6 +41,7 @@ async def handle_stream(websocket):
                 output.condition.wait()
                 frame = output.frame
             print("Sending frame")
+            print(frame)
             await websocket.send(frame)
     except Exception as e:
         print(e)
