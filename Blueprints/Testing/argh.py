@@ -15,8 +15,6 @@ from picamera2.encoders import MJPEGEncoder, Quality
 from picamera2.outputs import FileOutput
 from libcamera import Transform
 
-
-
 class StreamingOutput(io.BufferedIOBase):
     def __init__(self):
         self.frame = None
@@ -27,10 +25,16 @@ class StreamingOutput(io.BufferedIOBase):
             self.frame = buf
             self.condition.notify_all()
 
+picam2 = Picamera2()
+picam2.configure(picam2.create_video_configuration(main={"size": (1920, 1080)}, transform=Transform(hflip=1, vflip=1))) 
+output = StreamingOutput()
+picam2.start_recording(MJPEGEncoder(), FileOutput(output), Quality.LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
+
 async def handle_stream(websocket):
     global output
     try:
         while True:
+            print("pinging")
             with output.condition:
                 output.condition.wait()
                 frame = output.frame
@@ -38,11 +42,9 @@ async def handle_stream(websocket):
             await websocket.send(frame)
     except Exception as e:
         print(e)
-    
-picam2 = Picamera2()
-picam2.configure(picam2.create_video_configuration(main={"size": (1920, 1080)}, transform=Transform(hflip=1, vflip=1))) 
-output = StreamingOutput()
-picam2.start_recording(MJPEGEncoder(), FileOutput(output), Quality.LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
+    finally:
+        print("Closing websocket")
+        await websocket.close()
 
 async def main():
     try:
