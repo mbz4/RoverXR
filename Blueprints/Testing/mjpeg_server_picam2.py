@@ -15,8 +15,7 @@ from threading import Condition
 from picamera2 import Picamera2
 from picamera2.encoders import MJPEGEncoder, Quality
 from picamera2.outputs import FileOutput
-from libcamera import controls
-from libcamera import Transform
+from libcamera import controls, Transform
 
 PAGE = """\
 <html>
@@ -88,8 +87,8 @@ class StreamingServer(socketserver.ThreadingMixIn, server.HTTPServer):
 
 #picam setup
 picam2 = Picamera2()
-# picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
-# picam2.video_configuration.controls.FrameRate = 30.0
+picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
+picam2.video_configuration.controls.FrameRate = 30.0
 picam2.configure(picam2.create_video_configuration(main={"size": (1920, 1080)}, transform=Transform(hflip=1, vflip=1))) # defaul framerate=30fps
 output = StreamingOutput()
 picam2.start_recording(MJPEGEncoder(), FileOutput(output), Quality.LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
