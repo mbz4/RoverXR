@@ -23,7 +23,7 @@ picam2 = Picamera2()
 picam2.configure(picam2.create_video_configuration(main={"size": (1280, 720)}, transform=Transform(hflip=1, vflip=1))) 
 output = StreamingOutput()
 picam2.start_recording(MJPEGEncoder(), FileOutput(output), Quality.VERY_LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
-print('\033[2;31;43m \n\n\tRecording started\n\n\033[0;0m')
+print('\033[2;31;43mRecording started\033[0;0m')
 
 async def handle_stream(websocket):
     global output
@@ -35,21 +35,19 @@ async def handle_stream(websocket):
             await websocket.send(frame)
     except Exception as e:
         print(e)
-    finally:
-        print('\033[2;31;43m \n\n\tClosing websocket\n\n\033[0;0m')
+        print('\033[2;31;43m Closing websocket\033[0;0m')
         await websocket.close()
 
 async def main():
     try:
         async with serve(handle_stream, "0.0.0.0", 3333, max_size = 3145728):
-            print('\033[2;31;43m \n\n\tServer started\n\n\033[0;0m')
+            print('\033[2;31;43mServer started\033[0;0m')
             await asyncio.Future()
     except KeyboardInterrupt:
         pass
     finally:
         picam2.stop_recording()
         picam2.close()
-        print('\033[2;31;43m \n\n\tRecording stopped\n\n\033[0;0m')
-        print("Exiting...")
-        quit()
+        print('\033[2;31;43mRecording stopped\033[0;0m')
+        print("\033[2;31;43mExiting...\033[0;0m")
 asyncio.run(main())
