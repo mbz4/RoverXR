@@ -29,7 +29,7 @@ async def send_mjpeg_stream(websocket):
         pass
 
 async def main():
-    uri = f'ws://0.0.0.0:3333'
+    uri = f'ws://localhost:3333'
     async with websockets.connect(uri) as websocket:
         await send_mjpeg_stream(websocket)
 
