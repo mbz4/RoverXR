@@ -20,7 +20,9 @@ class StreamingOutput(io.BufferedIOBase):
             self.condition.notify_all()
 
 picam2 = Picamera2()
-picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
+# picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous}) # libcamera autofocus not working :(
+# followed: https://docs.arducam.com/Raspberry-Pi-Camera/Pivariety-Camera/Quick-Start-Guide/#1-libcamera-dev-and-libcamera-apps-installation
+# and it broke setup... so I'm not going to use libcamera autofocus
 picam2.configure(picam2.create_video_configuration(main={"size": (1280, 720)}, transform=Transform(hflip=1, vflip=1))) 
 output = StreamingOutput()
 picam2.start_recording(MJPEGEncoder(), FileOutput(output), Quality.VERY_LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
