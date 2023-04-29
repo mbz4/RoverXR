@@ -11,19 +11,20 @@ async def handle_stream(websocket):
         marker = b'\xff\xd8'
         # trailer = b'\xff\xd9\r\n\r\n'
         while True:
-            data = sys.stdin.buffer.readline()
-            if not data:
-                break
-            if data.startswith(marker):
-                print("Got new JPEG")
-                frame = bytearray()
-                while True:
-                    data = sys.stdin.buffer.readline()
-                    if data.startswith(marker):
-                        await websocket.send(frame)
-                        print("Sent frame to client")
-                        break
-                    frame.extend(data)
+            async with sys.stdin.buffer.read() as data:
+                if not data:
+                    print("No data")
+                    break
+                if data.startswith(marker):
+                    print("Got new JPEG")
+                    frame = bytearray()
+                    while True:
+                        data = sys.stdin.buffer.readline()
+                        if data.startswith(marker):
+                            await websocket.send(frame)
+                            print("Sent frame to client")
+                            break
+                        frame.extend(data)
     except websockets.exceptions.ConnectionClosedError:
         pass
 
