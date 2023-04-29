@@ -14,7 +14,7 @@ async def handle_stream(websocket):
         while True:
             image_buffer = io.BytesIO()
             data = sys.stdin.buffer.readline() # Read from stdin until boundary marker
-            print(data)
+            # print(data)
             if not data:
                 print("No data")
                 break        
