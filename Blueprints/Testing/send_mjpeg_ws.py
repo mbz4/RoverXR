@@ -11,6 +11,7 @@ async def send_mjpeg_stream(websocket):
         header = b'Content-Type: image/jpeg\r\n\r\n'
         while True:
             data = sys.stdin.buffer.readline() # Read from stdin
+            print(data)
             if not data:
                 break
             if data.startswith(boundary):
