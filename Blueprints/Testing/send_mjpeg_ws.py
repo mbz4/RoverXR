@@ -16,9 +16,11 @@ async def send_mjpeg_stream(websocket):
             data = sys.stdin.buffer.readline() # Read from stdin until boundary marker
             print(data)
             if not data:
+                print("No data")
                 break        
             if data.startswith(marker): # start of JPEG frame
                 while True:
+                    print("Reading frame")
                     data = sys.stdin.buffer.readline()
                     image_buffer.seek(0)
                     image_buffer.write(data)
