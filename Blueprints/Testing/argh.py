@@ -23,7 +23,7 @@ class StreamingOutput(io.BufferedIOBase):
     def write(self, buf):
         with self.condition:
             self.frame = buf
-            print("Frame written")
+            #print("Frame written")
             self.condition.notify_all()
 
 picam2 = Picamera2()
@@ -36,7 +36,7 @@ async def handle_stream(websocket):
     global output
     try:
         while True:
-            print("pinging")
+            print("pinging client...")
             with output.condition:
                 output.condition.wait()
                 frame = output.frame
