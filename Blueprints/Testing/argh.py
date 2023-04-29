@@ -42,7 +42,7 @@ async def handle_stream(websocket):
                 frame = output.frame
                 
             print('\033[2;31;43m \n\n\tSending new frame\n\n\033[0;0m')
-            print(frame)
+            #print(frame)
             await websocket.send(frame)
     except Exception as e:
         print(e)
@@ -52,7 +52,7 @@ async def handle_stream(websocket):
 
 async def main():
     try:
-        async with serve(handle_stream, "0.0.0.0", 3333):
+        async with serve(handle_stream, "0.0.0.0", 3333, max_size = 2**20):
             print('\033[2;31;43m \n\n\tServer started\n\n\033[0;0m')
             await asyncio.Future()
     except KeyboardInterrupt:
