@@ -1,17 +1,14 @@
-from websockets.server import serve
+#!/usr/bin/env python3
+from websockets.sync.client import connect
 import asyncio
 '''
 WS CLIENT ON LAPTOP
 '''
-async def echo(websocket):
-    async for message in websocket:
-        message = message.decode("utf-8")
-        print(f"Message from client: {message}")
-        await websocket.send(f"Received your message: {message}")
 
-async def main():
-    async with serve(echo, "localhost", 3333):
-        print("Server started")
-        await asyncio.Future()
+def hello():
+    with connect("ws://192.168.199.228:3333") as websocket:
+        #websocket.send("Hello world!")
+        message = websocket.recv()
+        print(f"Received: {message}")
 
-asyncio.run(main())
+hello()
