@@ -12,7 +12,7 @@ async def handle_stream(websocket):
         marker = b'\xff\xd8'
         trailer = b'\xff\xd9'
         while True:
-            image_buffer = io.BytesIO()
+            # image_buffer = io.BytesIO()
             data = sys.stdin.buffer.readline() # Read from stdin until boundary marker
             # print(data)
             if not data:
