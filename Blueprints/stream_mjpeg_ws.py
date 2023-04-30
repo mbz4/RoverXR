@@ -58,8 +58,8 @@ async def handle_stream(websocket): # websocket handler
                 output.condition.wait() # wait for a new frame
                 frame = output.frame # get the frame
             await websocket.send(frame) # send the frame to the client
-            
-            for message in websocket:
+
+            if message in websocket:
                 message = message.decode("utf-8")
                 print(f"Message from client: {message}")
             
