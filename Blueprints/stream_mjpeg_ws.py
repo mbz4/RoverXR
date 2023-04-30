@@ -89,7 +89,5 @@ async def main():
         print('\033[2;31;43mRecording stopped\033[0;0m') # notify user
     finally:
         print("\033[2;31;43mExiting...\033[0;0m")
-try:
-    asyncio.run(main()) # start the server
-except KeyboardInterrupt:
-    quit()
+
+asyncio.run(main()) # start the server
