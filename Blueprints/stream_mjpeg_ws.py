@@ -59,9 +59,7 @@ async def handle_stream(websocket): # websocket handler
                 frame = output.frame # get the frame
             await websocket.send(frame) # send the frame to the client
 
-            if message in websocket:
-                message = message.decode("utf-8")
-                print(f"Message from client: {message}")
+            print(f"Message from client: {websocket.recv().decode('utf-8')}")
             
     except Exception as e: # catch exceptions
         if e == KeyboardInterrupt: # catch keyboard interrupt
