@@ -43,9 +43,10 @@ print('\033[2;31;43mRecording started\033[0;0m')
     used to handle the websocket connection and send the frames to the client
 '''
 async def handle_stream(websocket): # websocket handler
+    
     async for message in websocket:
         message = message.decode("utf-8")
-        print(f"Message from client: {message}")
+        print(f"Message from client: {message}") 
     
     global output # use the global output variable
     try: # try to run the code
