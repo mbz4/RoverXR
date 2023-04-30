@@ -13,7 +13,9 @@ from libcamera import Transform # import the transform class
     ToDo:
     - wrap for autostart streaming in do while loop on startup
         - systemd + bash script?
-    - handle remote inbound comms (optional)
+    - handle remote inbound comms (optional) 
+        ==> need config file & method for handling camera reconfiguration
+        ==> inbound message py file for modifying configs from Godot
 '''
 
 '''
