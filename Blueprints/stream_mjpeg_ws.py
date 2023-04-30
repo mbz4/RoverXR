@@ -50,7 +50,6 @@ print('\033[2;31;43mRecording started\033[0;0m')
     used to handle the websocket connection and send the frames to the client
 '''
 async def handle_stream(websocket): # websocket handler 
-    
     # async def handle_inbound_msg(websocket):
     #     message = await websocket.recv()
     #     if len(message) > 0:
@@ -60,7 +59,7 @@ async def handle_stream(websocket): # websocket handler
     global output # use the global output variable
     try: # try to run the code
         while True: # run forever
-            #handle_inbound_msg(websocket)
+            #handle_inbound_msg(websocket) # tried to add inbound messaging feature to adjust configs & restart scripts
             with output.condition: # wait for a new frame
                 output.condition.wait() # wait for a new frame
                 frame = output.frame # get the frame
