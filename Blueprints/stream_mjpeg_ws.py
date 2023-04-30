@@ -51,22 +51,20 @@ print('\033[2;31;43mRecording started\033[0;0m')
 '''
 async def handle_stream(websocket): # websocket handler 
     
-    async def handle_inbound_msg(websocket):
-        message = await websocket.recv()
-        if len(message) > 0:
-            message = message.decode("utf-8")
-            print(f"Message from client: {message}")
+    # async def handle_inbound_msg(websocket):
+    #     message = await websocket.recv()
+    #     if len(message) > 0:
+    #         message = message.decode("utf-8")
+    #         print(f"Message from client: {message}")
             
     global output # use the global output variable
     try: # try to run the code
-        #while True: # run forever
-        #handle_inbound_msg(websocket)
-
-        with output.condition: # wait for a new frame
-            output.condition.wait() # wait for a new frame
-            frame = output.frame # get the frame
-        await websocket.send(frame) # send the frame to the client
-            
+        while True: # run forever
+            #handle_inbound_msg(websocket)
+            with output.condition: # wait for a new frame
+                output.condition.wait() # wait for a new frame
+                frame = output.frame # get the frame
+            await websocket.send(frame) # send the frame to the client   
     except Exception as e: # catch exceptions
         if e == KeyboardInterrupt: # catch keyboard interrupt
             pass # do nothing
