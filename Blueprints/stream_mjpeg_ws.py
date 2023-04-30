@@ -53,16 +53,16 @@ async def handle_stream(websocket): # websocket handler
     
     global output # use the global output variable
     try: # try to run the code
-        while True: # run forever
-            with output.condition: # wait for a new frame
-                output.condition.wait() # wait for a new frame
-                frame = output.frame # get the frame
-            await websocket.send(frame) # send the frame to the client
-            
-            message = await websocket.recv()
-            if len(message) > 0:
-                message = message.decode("utf-8")
-                print(f"Message from client: {message}")
+        #while True: # run forever
+        message = await websocket.recv()
+        if len(message) > 0:
+            message = message.decode("utf-8")
+            print(f"Message from client: {message}")
+        
+        with output.condition: # wait for a new frame
+            output.condition.wait() # wait for a new frame
+            frame = output.frame # get the frame
+        await websocket.send(frame) # send the frame to the client
             
     except Exception as e: # catch exceptions
         if e == KeyboardInterrupt: # catch keyboard interrupt
