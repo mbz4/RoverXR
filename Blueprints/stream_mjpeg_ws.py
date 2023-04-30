@@ -49,11 +49,7 @@ print('\033[2;31;43mRecording started\033[0;0m')
     Handle stream function:
     used to handle the websocket connection and send the frames to the client
 '''
-async def handle_stream(websocket): # websocket handler
-    
-    async for message in websocket:
-        message = message.decode("utf-8")
-        print(f"Message from client: {message}") 
+async def handle_stream(websocket): # websocket handler 
     
     global output # use the global output variable
     try: # try to run the code
@@ -62,6 +58,10 @@ async def handle_stream(websocket): # websocket handler
                 output.condition.wait() # wait for a new frame
                 frame = output.frame # get the frame
             await websocket.send(frame) # send the frame to the client
+            
+            async for message in websocket:
+                message = message.decode("utf-8")
+                print(f"Message from client: {message}")
     except Exception as e: # catch exceptions
         if e == KeyboardInterrupt: # catch keyboard interrupt
             pass # do nothing
