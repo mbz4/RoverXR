@@ -60,7 +60,7 @@ async def handle_stream(websocket): # websocket handler
     global output # use the global output variable
     try: # try to run the code
         #while True: # run forever
-        handle_inbound_msg(websocket)
+        #handle_inbound_msg(websocket)
 
         with output.condition: # wait for a new frame
             output.condition.wait() # wait for a new frame
