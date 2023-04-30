@@ -10,6 +10,13 @@ from picamera2.outputs import FileOutput # import the file output
 from libcamera import Transform # import the transform class
 
 '''
+    ToDo:
+    - wrap for autostart streaming in do while loop on startup
+        - systemd + bash script?
+    - handle remote inbound comms (optional)
+'''
+
+'''
     Streaming buffer class:
     this class is used to store the frame from the camera to be sent to the client
 '''
