@@ -44,20 +44,18 @@ picam2 = Picamera2() # create a new camera object
 picam2.configure(picam2.create_video_configuration(main={"size": (1280, 720)}, # set the resolution
                                                    transform=Transform(hflip=1, vflip=1))) # apply transforms to image
 output = StreamingOutput() # create a new streaming buffer object
-picam2.controls.ExposureTime = 8000 # set the exposure time to 10ms
-picam2.controls.AnalogueGain = 1.0
-
-colour = (0, 255, 0)
-origin = (0, 30)
-font = cv2.FONT_HERSHEY_SIMPLEX
-scale = 1
-thickness = 2
+picam2.controls.ExposureTime = 10000 # set the exposure time to 10ms
+picam2.controls.AnalogueGain = 1.0 # set the analogue gain to 1.0
 
 def apply_timestamp(request):
+    colour = (0, 255, 0)
+    origin = (0, 30)
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    scale = 1
+    thickness = 2
     timestamp = time.strftime("%Y-%m-%d %X")
     with MappedArray(request, "main") as m:
         cv2.putText(m.array, timestamp, origin, font, scale, colour, thickness)
-
 
 picam2.pre_callback = apply_timestamp
 picam2.start_recording(MJPEGEncoder(), # use the MJPEG encoder
