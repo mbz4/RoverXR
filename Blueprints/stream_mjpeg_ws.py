@@ -9,6 +9,7 @@ from picamera2.encoders import MJPEGEncoder, Quality # import the MJPEG encoder 
 from picamera2.outputs import FileOutput # import the file output
 from libcamera import Transform # import the transform class
 import cv2
+import time
 '''
     ToDo:
     - wrap for autostart streaming in do while loop on startup
