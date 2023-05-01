@@ -43,7 +43,7 @@ picam2 = Picamera2() # create a new camera object
 picam2.configure(picam2.create_video_configuration(main={"size": (1280, 720)}, # set the resolution
                                                    transform=Transform(hflip=1, vflip=1))) # apply transforms to image
 output = StreamingOutput() # create a new streaming buffer object
-picam2.controls.ExposureTime = 10000 # set the exposure time to 10ms
+picam2.controls.ExposureTime = 5000 # set the exposure time to 10ms
 picam2.controls.AnalogueGain = 1.0
 picam2.start_recording(MJPEGEncoder(), # use the MJPEG encoder
                        FileOutput(output), # output the frames to the streaming buffer
