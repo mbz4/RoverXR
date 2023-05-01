@@ -8,7 +8,7 @@ from picamera2 import Picamera2, MappedArray # import the picamera2 library
 from picamera2.encoders import MJPEGEncoder, Quality # import the MJPEG encoder and quality settings
 from picamera2.outputs import FileOutput # import the file output
 from libcamera import Transform # import the transform class
-import cv2
+from cv2 import putText, FONT_HERSHEY_SIMPLEX # import the putText and FONT_HERSHEY_SIMPLEX functions from opencv
 import time
 '''
     ToDo:
@@ -49,12 +49,12 @@ picam2.controls.AnalogueGain = 1.0 # set the analogue gain to 1.0
 def apply_timestamp(request):
     colour = (0, 255, 0)
     origin = (0, 30)
-    font = cv2.FONT_HERSHEY_SIMPLEX
+    font = FONT_HERSHEY_SIMPLEX
     scale = 1
     thickness = 2
     timestamp = time.strftime("%Y-%m-%d %X")
     with MappedArray(request, "main") as m:
-        cv2.putText(m.array, timestamp, origin, font, scale, colour, thickness)
+        putText(m.array, timestamp, origin, font, scale, colour, thickness)
 
 picam2.pre_callback = apply_timestamp
 picam2.start_recording(MJPEGEncoder(), # use the MJPEG encoder
