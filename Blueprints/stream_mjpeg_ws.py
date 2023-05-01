@@ -8,14 +8,6 @@ from picamera2 import Picamera2 # import the picamera2 library
 from picamera2.encoders import MJPEGEncoder, Quality # import the MJPEG encoder and quality settings
 from picamera2.outputs import FileOutput # import the file output
 from libcamera import Transform # import the transform class
-'''
-    ToDo:
-    - wrap for autostart streaming in do while loop on startup
-        - systemd + bash script?
-    - handle remote inbound comms (optional) 
-        ==> need config file & method for handling camera reconfiguration
-        ==> inbound message py file for modifying configs from Godot
-'''
 
 '''
     Streaming buffer class:
@@ -37,13 +29,11 @@ class StreamingOutput(io.BufferedIOBase): # inherit from BufferedIOBase
 '''
 print('\033[2;31;43mConfiguring camera...\033[0;0m')
 picam2 = Picamera2() # create a new camera object
-
 picam2.configure(picam2.create_video_configuration(main={"size": (1280, 720)}, # set the resolution
                                                    transform=Transform(hflip=1, vflip=1))) # apply transforms to image
 output = StreamingOutput() # create a new streaming buffer object
 picam2.controls.ExposureTime = 10000 # set the exposure time to 10ms
 picam2.controls.AnalogueGain = 1.0 # set the analogue gain to 1.0
-
 picam2.start_recording(MJPEGEncoder(), # use the MJPEG encoder
                        FileOutput(output), # output the frames to the streaming buffer
                        Quality.VERY_LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
@@ -53,17 +43,10 @@ print('\033[2;31;43mRecording started\033[0;0m')
     Handle stream function:
     used to handle the websocket connection and send the frames to the client
 '''
-async def handle_stream(websocket): # websocket handler 
-    # async def handle_inbound_msg(websocket): # this blocks outbound stream until next message received, not ideal
-    #     message = await websocket.recv()
-    #     if len(message) > 0:
-    #         message = message.decode("utf-8")
-    #         print(f"Message from client: {message}")
-            
+async def handle_stream(websocket): # websocket handler           
     global output # use the global output variable
     try: # try to run the code
         while True: # run forever
-            #handle_inbound_msg(websocket) # tried to add inbound messaging feature to adjust configs & restart scripts
             with output.condition: # wait for a new frame
                 output.condition.wait() # wait for a new frame
                 frame = output.frame # get the frame
