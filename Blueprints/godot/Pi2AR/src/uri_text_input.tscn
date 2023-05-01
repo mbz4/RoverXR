@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmutiytqlrh44"]
+
+[ext_resource type="Script" path="res://src/uri_text_input.gd" id="1_lmu43"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46nni"]
+bg_color = Color(0.392157, 0.392157, 0.392157, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snkt8"]
+bg_color = Color(0.717647, 0.717647, 0.717647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t10lw"]
+bg_color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nqen"]
+bg_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[node name="uri_text_input" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lmu43")
+
+[node name="Bakcground" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_46nni")
+
+[node name="MarginContainer" type="MarginContainer" parent="Bakcground"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Rows" type="VBoxContainer" parent="Bakcground/MarginContainer"]
+layout_mode = 2
+
+[node name="StreamPanel" type="PanelContainer" parent="Bakcground/MarginContainer/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_snkt8")
+
+[node name="DebugOverlay" type="RichTextLabel" parent="Bakcground/MarginContainer/Rows/StreamPanel"]
+layout_mode = 2
+
+[node name="InputArea" type="PanelContainer" parent="Bakcground/MarginContainer/Rows"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t10lw")
+
+[node name="Rows" type="VBoxContainer" parent="Bakcground/MarginContainer/Rows/InputArea"]
+layout_mode = 2
+
+[node name="InputArea" type="HBoxContainer" parent="Bakcground/MarginContainer/Rows/InputArea/Rows"]
+layout_mode = 2
+
+[node name="InputURI" type="LineEdit" parent="Bakcground/MarginContainer/Rows/InputArea/Rows/InputArea"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "IP:PORT >"
+max_length = 50
+expand_to_text_length = true
+
+[node name="Settings" type="HBoxContainer" parent="Bakcground/MarginContainer/Rows/InputArea/Rows"]
+layout_mode = 2
+alignment = 1
+
+[node name="DisplayURI" type="Label" parent="Bakcground/MarginContainer/Rows/InputArea/Rows/Settings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nqen")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Show Debug" type="CheckButton" parent="Bakcground/MarginContainer/Rows/InputArea/Rows/Settings"]
+layout_mode = 2
+text = "Show Debug"
+
+[node name="DisplayFPS" type="Label" parent="Bakcground/MarginContainer/Rows/InputArea/Rows/Settings"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nqen")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="text_submitted" from="Bakcground/MarginContainer/Rows/InputArea/Rows/InputArea/InputURI" to="." method="_on_input_uri_text_submitted"]
+[connection signal="toggled" from="Bakcground/MarginContainer/Rows/InputArea/Rows/Settings/Show Debug" to="." method="_on_show_debug_toggled"]

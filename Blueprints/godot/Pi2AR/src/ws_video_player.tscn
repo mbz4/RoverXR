@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://b35ju4ea1ofk3"]
+
+[ext_resource type="Script" path="res://src/ws_video_player.gd" id="1_afjlu"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_np47x"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_r2rxt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oae6o"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = SubResource("ImageTexture_r2rxt")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kng37"]
+size = Vector2(16, 9)
+orientation = 2
+
+[sub_resource type="ImageTexture" id="ImageTexture_had5e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdxme"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = SubResource("ImageTexture_had5e")
+albedo_texture_force_srgb = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_clwhl"]
+flip_faces = true
+top_radius = 8.0
+bottom_radius = 8.0
+height = 9.0
+cap_top = false
+cap_bottom = false
+
+[node name="ws_video_player" type="Node3D"]
+script = ExtResource("1_afjlu")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ImageTexture_np47x")
+
+[node name="FlatScreen" type="MeshInstance3D" parent="Sprite3D"]
+visible = false
+material_override = SubResource("StandardMaterial3D_oae6o")
+mesh = SubResource("PlaneMesh_kng37")
+
+[node name="CurvedScreen" type="MeshInstance3D" parent="Sprite3D"]
+material_override = SubResource("StandardMaterial3D_kdxme")
+mesh = SubResource("CylinderMesh_clwhl")
