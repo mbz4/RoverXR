@@ -4,12 +4,10 @@ import io # import the io library
 from threading import Condition #  import the condition class
 from websockets.server import serve # import the websockets library
 import asyncio # import the asyncio library
-from picamera2 import Picamera2, MappedArray # import the picamera2 library
+from picamera2 import Picamera2 # import the picamera2 library
 from picamera2.encoders import MJPEGEncoder, Quality # import the MJPEG encoder and quality settings
 from picamera2.outputs import FileOutput # import the file output
 from libcamera import Transform # import the transform class
-from cv2 import putText, FONT_HERSHEY_SIMPLEX # import the putText and FONT_HERSHEY_SIMPLEX functions from opencv
-import time
 '''
     ToDo:
     - wrap for autostart streaming in do while loop on startup
@@ -46,17 +44,6 @@ output = StreamingOutput() # create a new streaming buffer object
 picam2.controls.ExposureTime = 10000 # set the exposure time to 10ms
 picam2.controls.AnalogueGain = 1.0 # set the analogue gain to 1.0
 
-def apply_timestamp(request):
-    colour = (0, 255, 0)
-    origin = (0, 30)
-    font = FONT_HERSHEY_SIMPLEX
-    scale = 1
-    thickness = 2
-    timestamp = time.strftime("%Y-%m-%d %X")
-    with MappedArray(request, "main") as m:
-        putText(m.array, timestamp, origin, font, scale, colour, thickness)
-
-picam2.pre_callback = apply_timestamp
 picam2.start_recording(MJPEGEncoder(), # use the MJPEG encoder
                        FileOutput(output), # output the frames to the streaming buffer
                        Quality.VERY_LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
