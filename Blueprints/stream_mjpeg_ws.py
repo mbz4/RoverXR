@@ -17,8 +17,6 @@ import time
     - handle remote inbound comms (optional) 
         ==> need config file & method for handling camera reconfiguration
         ==> inbound message py file for modifying configs from Godot
-    - play with exposure time to lessen shaky camera
-    - add lens ==> project to curved surface in VR
 '''
 
 '''
@@ -39,6 +37,7 @@ class StreamingOutput(io.BufferedIOBase): # inherit from BufferedIOBase
     Picamera2 setup:
     used to configure the camera and start recording
 '''
+print('\033[2;31;43mConfiguring camera...\033[0;0m')
 picam2 = Picamera2() # create a new camera object
 
 picam2.configure(picam2.create_video_configuration(main={"size": (1280, 720)}, # set the resolution
