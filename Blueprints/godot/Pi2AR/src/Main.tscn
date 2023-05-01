@@ -19,7 +19,7 @@
 script = ExtResource("1_ptuyj")
 
 [node name="Player" type="XROrigin3D" parent="."]
-transform = Transform3D(-3.93402e-07, 0, 1, 0, 1, 0, -1, 0, -3.93402e-07, -0.157173, 0.571223, 0.603524)
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -0.157173, 0.571223, 0.139095)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="Player"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.49665, 0.906092, 0.00801064)
@@ -72,7 +72,7 @@ viewport_size = Vector2(640, 360)
 scene = ExtResource("14_kvgfw")
 
 [node name="Stream" parent="." instance=ExtResource("12_c5vrh")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 13)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 7)
 screen_size = Vector2(16, 9)
 viewport_size = Vector2(1280, 720)
 scene = ExtResource("14_hd5lf")
