@@ -6,19 +6,41 @@
 
     `sudo apt-get update && sudo apt-get upgrade -y`
 
-    - then expand filesystem, adjust settings, hostname, etc
+    - expand filesystem, adjust settings, hostname, enable SSH etc
     
     `sudo raspi-config`
     
+    - adjust network settings: Wifi, etc
+
 1. get the repo to the pi
 
     `git clone https://github.com/mbz4/edu_teleop_demo.git`
 
-2. python ./Blueprints/stream_mjpeg_ws.py
+2. to start streaming, running the following python script 
+
+    `Blueprints/stream_mjpeg_ws.py`
+
+    - it configures the camera using picamera2
+    - prepares a byte buffer in memory
+    - starts a websocket server at:
+
+        `ws://<PI-IP>:3333`
+    
+    - once a client connects
+        
+        - it sends individual JPEG frames from picamera2 output buffer
 
 # VR setup
 
 1. get scene apk to your Meta Quest 2
+
+    - once loaded you can use controller thumbsticks to rotate, navigate the AR scene
+        - behind you is a terminal window
+        - you can set the websocket URI address here - input just the Pi IP:
+
+        `PI_IP > PI_IP_ADDRESS_IN_YOUR_LOCAL_NETWORK`
+
+        - (make sure you are connected to the same network as the pi is)
 
 2. run apk
 
@@ -38,7 +60,7 @@
  
 ### [Bill of materials](./CAD/README.md)
 
-### Artefact v2 with screws
+### Artefact v2
 
 ![Assembled v2 with screws](./CAD/v2_w_screws.png)
 

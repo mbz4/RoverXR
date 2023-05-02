@@ -24,8 +24,8 @@ func _process(_delta):
 			previous_fps_msg = curr_fps_msg
 			DisplayFPS.text = curr_fps_msg
 	
-func _on_input_uri_text_submitted(new_text):
-	WS_CONF.WS_URI = "ws://"+str(new_text)
+func _on_input_uri_text_submitted(IP_addr_txt):
+	WS_CONF.WS_URI = "ws://"+str(IP_addr_txt)+":3333"
 	DisplayURI.text = WS_CONF.WS_URI
 	DebugOverlay.text += "WS URI CHANGED: " + WS_CONF.WS_URI
 
