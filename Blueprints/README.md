@@ -26,18 +26,21 @@
 
 1. print mod kit file 
 
-- gcode (sliced for Prusa MK3S)
+- gcode (sliced for Prusa MK3S) found at:
 
 `Blueprints/CAD/32g_rover_mod_kit_0.3mm_PLA_MK3S_2h12m.gcode` 
 
-- 3mf model file
+- v1 3mf model files found at:
 
 `Blueprints/CAD/rover_mod_kit.3mf`
 
 2. assemble mod kit
+ 
+## [Bill of materials](./CAD/README.md)
 
- - [Bill of materials](./CAD/README.md)
- - ![Artefact, v2, with screws](./CAD/v2_w_screws.png)
+
+![Assembled v2 with screws](./CAD/v2_w_screws.png)
+s
 
 3. flash firmware, can use Arduino IDE (M5 Stick C library)
 
