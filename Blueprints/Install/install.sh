@@ -1,5 +1,6 @@
 #!/bin/bash
-
+echo "Installing autostart service..."
+echo "This needs to be run from the install directory"
 loginctl enable-linger "$USER"
 # Copy the service file to the user's systemd directory
 mkdir -p "$HOME/.config/systemd/user"
