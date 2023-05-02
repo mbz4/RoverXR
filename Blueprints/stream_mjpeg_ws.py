@@ -50,7 +50,7 @@ output = StreamingOutput() # create a new streaming buffer object
 #picam2.controls.AnalogueGain = 1.0 # set the analogue gain to 1.0
 picam2.start_recording(MJPEGEncoder(), # use the MJPEG encoder
                        FileOutput(output), # output the frames to the streaming buffer
-                       Quality.VERY_LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
+                       Quality.MEDIUM) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
 print('\033[2;31;43mRecording started\033[0;0m')
 
 '''
