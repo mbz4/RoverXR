@@ -36,8 +36,8 @@
 
 2. assemble mod kit
 
- - [Bill of materials](/CAD/README.md)
- - ![Artefact, v2, with screws](/CAD/v2_w_screws.png)
+ - [Bill of materials](./CAD/README.md)
+ - ![Artefact, v2, with screws](./CAD/v2_w_screws.png)
 
 3. flash firmware, can use Arduino IDE (M5 Stick C library)
 
