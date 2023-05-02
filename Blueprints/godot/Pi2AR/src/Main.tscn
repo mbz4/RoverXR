@@ -19,7 +19,7 @@
 script = ExtResource("1_ptuyj")
 
 [node name="Player" type="XROrigin3D" parent="."]
-transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -0.157173, 0.571223, 0.139095)
+transform = Transform3D(6.55671e-07, 0, -1, 0, 1, 0, 1, 0, 6.55671e-07, -0.157173, 0.571223, 0.139095)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="Player"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.49665, 0.906092, 0.00801064)

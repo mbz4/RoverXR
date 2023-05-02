@@ -1,7 +1,7 @@
 extends Control
 
 var socket = WebSocketPeer.new()
-
+var frame = Image.new()
 var meas_fps_start = Time.get_ticks_msec()
 var fps_counter : int = 0
 var time_elapsed : float = 0
@@ -42,7 +42,7 @@ func _handle_connect() -> void:
 		print_to_debug("Failed to connect to %s" % [WS_CONF.WS_URI])
 
 func _handle_stream(data: PackedByteArray) -> void:
-	var frame = Image.new()
+	#var frame = Image.new()
 	var error = frame.load_jpg_from_buffer(data)
 	if error == OK:
 		$Margin/Stream.texture = ImageTexture.create_from_image(frame)

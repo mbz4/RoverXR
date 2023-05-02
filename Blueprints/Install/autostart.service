@@ -1,0 +1,9 @@
+[Unit]
+Description=Stream
+
+[Service]
+ExecStart=/usr/bin/python edu_teleop_demo/Blueprints/stream_mjpeg_ws.py
+Restart=always
+
+[Install]
+WantedBy=default.target

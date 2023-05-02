@@ -21,6 +21,9 @@ from libcamera import Transform # import the transform class
         - add to crontab...?
         - add to .bashrc...?
         - start streaming server on boot, after git pull completes
+    - check out godot async to offload main thread on inbound frame decoding to image buffer
+        - maybe instead of creating texture, replace it
+    - measure delay of invoking .load_jpg_from_buffer() @1080p30 on Quest 2
 '''
 
 '''
