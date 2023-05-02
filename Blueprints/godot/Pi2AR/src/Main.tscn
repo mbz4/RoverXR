@@ -72,9 +72,9 @@ viewport_size = Vector2(640, 360)
 scene = ExtResource("14_kvgfw")
 
 [node name="Stream" parent="." instance=ExtResource("12_c5vrh")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 7)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 10)
 screen_size = Vector2(16, 9)
-viewport_size = Vector2(1280, 720)
+viewport_size = Vector2(1920, 1080)
 scene = ExtResource("14_hd5lf")
 
 [node name="StartXR" parent="." instance=ExtResource("4_8oumi")]
