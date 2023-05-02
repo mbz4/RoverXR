@@ -4,15 +4,15 @@
 
 0. flash Raspbian Lite (32-bit) onto SD Card (class 10 recommended), then run
 
-`sudo apt-get update`
+    `sudo apt-get update && sudo apt-get upgrade -y`
 
-`sudo apt-get upgrade`
-
-`sudo raspi-config`
-
+    - then expand filesystem, adjust settings, hostname, etc
+    
+    `sudo raspi-config`
+    
 1. get the repo to the pi
 
-`git clone https://github.com/mbz4/edu_teleop_demo.git`
+    `git clone https://github.com/mbz4/edu_teleop_demo.git`
 
 2. python ./Blueprints/stream_mjpeg_ws.py
 
@@ -26,40 +26,41 @@
 
 1. print mod kit file 
 
-- gcode (sliced for Prusa MK3S) found at:
+    - gcode (sliced for Prusa MK3S) found at:
 
-`Blueprints/CAD/32g_rover_mod_kit_0.3mm_PLA_MK3S_2h12m.gcode` 
+    `Blueprints/CAD/32g_rover_mod_kit_0.3mm_PLA_MK3S_2h12m.gcode` 
 
-- v1 3mf model files found at:
+    - v1 3mf model files found at:
 
-`Blueprints/CAD/rover_mod_kit.3mf`
+    `Blueprints/CAD/rover_mod_kit.3mf`
 
 2. assemble mod kit
  
-## [Bill of materials](./CAD/README.md)
+### [Bill of materials](./CAD/README.md)
 
+### Artefact v2 with screws
 
 ![Assembled v2 with screws](./CAD/v2_w_screws.png)
-s
+
 
 3. flash firmware, can use Arduino IDE (M5 Stick C library)
 
-- connect rover M5 Stick C to PC
-- open & flash:
+    - connect rover M5 Stick C to PC
+    - open & flash master scripts, found at:
 
-`Blueprints/rover_FW/Master/Master.ino`
+    `Blueprints/rover_FW/Master/Master.ino`
 
-- disconnect from PC and install Master Stick to Rover
-- connect remote M5 Stick C to PC
-- open & flash:
+    - disconnect from PC and install Master Stick to Rover
+    - connect remote M5 Stick C to PC
+    - open & flash remote controller script, found at:
 
-`Blueprints/rover_FW/Remote/Remote.ino`
+    `Blueprints/rover_FW/Remote/Remote.ino`
 
-- disconnect from PC and install Remote Stick to Remote Controller
-- use power switches on remote & rover
-- press and hold for 4 seconds the lower left side button on both M5 Stick C's to turn them on
-- press and hold for 4 seconds the 'M5' button on Remote controller, once the Master MAC address is shown
-- rover can now be remotely operated using remote
+    - disconnect from PC and install Remote Stick to Remote Controller
+    - use power switches on remote & rover
+    - press and hold for 4 seconds the lower left side button on both M5 Stick C's to turn them on
+    - press and hold for 4 seconds the 'M5' button on Remote controller, once the Master MAC address is shown
+    - rover can now be remotely operated using remote
 
 ## To-Do:
 
