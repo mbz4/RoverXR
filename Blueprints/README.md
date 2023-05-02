@@ -41,7 +41,8 @@
         `PI_IP > PI_IP_ADDRESS_IN_YOUR_LOCAL_NETWORK`
 
         - (make sure you are connected to the same network as the pi is)
-
+    - disable space sense
+    
 2. run apk
 
 # M5 Rover C setup
