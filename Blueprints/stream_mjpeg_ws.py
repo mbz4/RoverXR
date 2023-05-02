@@ -43,14 +43,14 @@ class StreamingOutput(io.BufferedIOBase): # inherit from BufferedIOBase
 '''
 print('\033[2;31;43mConfiguring camera...\033[0;0m')
 picam2 = Picamera2() # create a new camera object
-picam2.configure(picam2.create_video_configuration(main={"size": (1920, 1080)}, # set the resolution
+picam2.configure(picam2.create_video_configuration(main={"size": (1280, 720)}, # set the resolution
                                                    transform=Transform(hflip=1, vflip=1))) # apply transforms to image
 output = StreamingOutput() # create a new streaming buffer object
 #picam2.controls.ExposureTime = 10000 # set the exposure time to 10ms
 #picam2.controls.AnalogueGain = 1.0 # set the analogue gain to 1.0
 picam2.start_recording(MJPEGEncoder(), # use the MJPEG encoder
                        FileOutput(output), # output the frames to the streaming buffer
-                       Quality.MEDIUM) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
+                       Quality.VERY_LOW) #VERY_LOW=6Mbps, LOW=12Mbps, MEDIUM=18Mbps, HIGH=27Mbps 
 print('\033[2;31;43mRecording started\033[0;0m')
 
 '''

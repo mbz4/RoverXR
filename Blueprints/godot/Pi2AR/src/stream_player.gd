@@ -46,8 +46,7 @@ func _handle_stream(data: PackedByteArray) -> void:
 	var error = frame.load_jpg_from_buffer(data)
 	if error == OK:
 		$Margin/Stream.texture = ImageTexture.create_from_image(frame)
-		if WS_CONF.SHOW_FRAME_DEBUG:
-			calc_FPS()
+		calc_FPS()
 	else:
 		print_to_debug("Failed to load received image, error code %s" % [error])
 
