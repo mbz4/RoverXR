@@ -36,13 +36,8 @@
 
 2. assemble mod kit
 
-## BOM
-
-| Count | Type | Length |
-|-------|------|--------|
-| 6     | M3   | 5mm    |
-| 4     | M3   | 12mm   |
-| 4     | M3   | 8mm    |
+ - [Bill of materials](Blueprints\CAD\README.md)
+ - ![Artefact, v2, with screws](Blueprints\CAD\v2_w_screws.png)
 
 3. flash firmware, can use Arduino IDE (M5 Stick C library)
 
