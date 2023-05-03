@@ -57,14 +57,13 @@
 
     `Blueprints/CAD/rover_mod_kit.3mf`
 
-2. assemble mod kit
+2. assemble the mod kit
  
-### [Bill of materials](./CAD/README.md)
+#### [Bill of materials for physical artefact](./CAD/README.md)
 
-### Artefact v2
+#### v2 concept design for reference
 
 ![Assembled v2 with screws](./CAD/v2_w_screws.png)
-
 
 3. flash firmware, can use Arduino IDE (M5 Stick C library)
 
