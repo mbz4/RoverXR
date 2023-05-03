@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj5l8hvwt5t1a"]
+
+[ext_resource type="Script" path="res://ws_client.gd" id="2_d146b"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_juimj"]
+
+[node name="Client" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ImageTexture_juimj")
+
+[node name="invokeWSClient" type="Node" parent="."]
+script = ExtResource("2_d146b")
+
+[node name="invokeTCPClient" type="Node" parent="."]
+
+[node name="FPS" type="RichTextLabel" parent="."]
+offset_left = 989.0
+offset_top = 125.0
+offset_right = 1265.0
+offset_bottom = 205.0
+
+[node name="Delay" type="RichTextLabel" parent="."]
+offset_left = 982.0
+offset_top = 33.0
+offset_right = 1248.0
+offset_bottom = 113.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Input" type="LineEdit" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="SendButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+text = "            Send            "
+
+[node name="Debug" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/SendButton" to="invokeWSClient" method="_on_send_button_pressed"]
