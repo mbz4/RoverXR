@@ -61,6 +61,8 @@
  
 #### [Bill of materials for physical artefact](./CAD/README.md)
 
+#### Fusion360 RoverXR assembly link [f360 assembly link](https://a360.co/4158f0r)
+
 #### v2 concept design for reference
 
 ![Assembled v2 with screws](./CAD/v2_w_screws.png)
