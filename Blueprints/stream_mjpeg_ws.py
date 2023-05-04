@@ -12,16 +12,9 @@ from libcamera import Transform # import the transform class
 '''
     ToDo:
     - project to a curved surface in Godot
-    - test w/ lens distortion ==> wait for chassis v2
+        - test w/ lens distortion
     - test w/ different resolutions, exposure times, analogue gains, quality settings
-    - wrap in bash script for autostart
-        - https://www.raspberrypi.org/documentation/linux/usage/systemd.md
-        - add to /etc/rc.local...
-        - add git pull to bash script
-        - add to crontab...?
-        - add to .bashrc...?
-        - start streaming server on boot, after git pull completes
-    - check out godot async to offload main thread on inbound frame decoding to image buffer
+    - check out godot async options to offload main thread on inbound frame decoding to image buffer
         - maybe instead of creating texture, replace it
     - measure delay of invoking .load_jpg_from_buffer() @1080p30 on Quest 2
 '''
