@@ -63,6 +63,8 @@
 
 #### Fusion360 RoverXR assembly link [f360 assembly link](https://a360.co/4158f0r)
 
+Please, note the above link may not function correctly if viewed on mobile.
+
 #### v2 concept design for reference
 
 ![Assembled v2 with screws](./CAD/v2_w_screws.png)
