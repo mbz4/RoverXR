@@ -42,10 +42,10 @@ script = ExtResource("1_afjlu")
 texture = SubResource("ImageTexture_np47x")
 
 [node name="FlatScreen" type="MeshInstance3D" parent="Sprite3D"]
-visible = false
 material_override = SubResource("StandardMaterial3D_oae6o")
 mesh = SubResource("PlaneMesh_kng37")
 
 [node name="CurvedScreen" type="MeshInstance3D" parent="Sprite3D"]
+visible = false
 material_override = SubResource("StandardMaterial3D_kdxme")
 mesh = SubResource("CylinderMesh_clwhl")

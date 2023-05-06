@@ -133,16 +133,13 @@ void loop() {
       if (udpdata[2] != 0x00) {
         switch (udpdata[2]) {
           case 0x01:
-            // Serial.println("RIGHT Trigger Pressed");
-            setServoAngle(0, 75);
+            setServoAngle(0, 75); // Serial.println("RIGHT Trigger Pressed");
             break;
           case 0x10:
-            // Serial.println("LEFT Trigger Pressed");
-            setServoAngle(0, 20);
+            setServoAngle(0, 20); // Serial.println("LEFT Trigger Pressed");
             break;
           case 0x11:
-            // Serial.println("BOTH Triggers Pressed");
-            setServoAngle(0, 2);
+            setServoAngle(0, 2); // Serial.println("BOTH Triggers Pressed");
             break;
         }
       }

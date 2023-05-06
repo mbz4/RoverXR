@@ -225,21 +225,18 @@ void setup() {
 uint8_t adc_value[5] = { 0 };
 uint16_t AngleBuff[4];
 uint32_t count = 0;
+
 void loop() {
   for (int i = 0; i < 5; i++) {
     adc_value[i] = I2CRead8bit(0x60 + i);
   }
-
   for (int i = 0; i < 4; i++) {
     AngleBuff[i] = I2CRead16bit(0x50 + i * 2);
   }
-
   delay(10);
-
   if (WiFi.status() != WL_CONNECTED) {
     Disbuff.pushImage(0, 0, 20, 20, (uint16_t *)connect_off);
     Disbuff.pushSprite(0, 0);
-
     count++;
     if (count > 500) {
       WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS);
@@ -250,24 +247,17 @@ void loop() {
     SendBuff[3] = map(AngleBuff[0], 0, 4000, 0, 200);
     SendBuff[4] = map(AngleBuff[1], 0, 4000, 0, 200);
     SendBuff[5] = map(AngleBuff[2], 0, 4000, 0, 200);
-    /*
-        Disbuff.pushImage(0,0,20,20,(uint16_t *)connect_on);
-        Disbuff.pushSprite(0,0);
-        count = 0;
-        */
     if ((SendBuff[3] > 110) || (SendBuff[3] < 90) || (SendBuff[4] > 110) || (SendBuff[4] < 90) || (SendBuff[5] > 110) || (SendBuff[5] < 90)) {
       SendBuff[6] = 0x01;
-      // Serial.println("Pressed Trigger?");
     } else {
       SendBuff[6] = 0x00;
-      // Serial.println("Pressed Trigger?");
     }
     Serial.print(SendBuff[0], HEX); Serial.print("\t"); Serial.print(SendBuff[1], HEX); Serial.print("\t"); Serial.print(SendBuff[2], HEX); Serial.print("\t");
     Serial.print(SendBuff[3], HEX); Serial.print("\t"); Serial.print(SendBuff[4], HEX); Serial.print("\t"); Serial.print(SendBuff[5], HEX); Serial.print("\t");
     Serial.print(SendBuff[6], HEX); Serial.print("\t"); Serial.println(SendBuff[7], HEX);
     SendUDP();
   }
-
+  
   Disbuff.fillRect(0, 30, 80, 130, BLACK);
   Disbuff.setCursor(10, 30);
   Disbuff.printf("%04d", SendBuff[3]);
