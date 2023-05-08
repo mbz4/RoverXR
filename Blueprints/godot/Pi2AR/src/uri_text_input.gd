@@ -31,3 +31,4 @@ func _on_input_uri_text_submitted(IP_addr_txt):
 
 func _on_show_debug_toggled(button_pressed):
 	WS_CONF.SHOW_FRAME_DEBUG = button_pressed
+
