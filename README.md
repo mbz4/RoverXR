@@ -1,6 +1,9 @@
 # edu_teleop_demo
 Teleoperation { Low Latency Video Stream + Virtual Reality + M5 Rover C Pro} Fun
 
+to-do:
+
+- add bibtex to git
 
 1. Blueprints
 
