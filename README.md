@@ -1,4 +1,5 @@
-# RoverXR
+# RoverXR: Open Source Teleop Demo For Students
+
 Teleoperation { Low Latency Video Stream + Virtual Reality + M5 Rover C Pro} Fun
 
 
