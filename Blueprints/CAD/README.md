@@ -1,3 +1,49 @@
+# CAD Tree
+
+```
+📦CAD
+ ┣ 📂v1
+ ┃ ┣ 📜32g_rover_mod_kit_0.3mm_PLA_MK3S_2h12m.gcode
+ ┃ ┣ 📜rover_mod_kit.3mf
+ ┃ ┗ 📜v1.png
+ ┣ 📂v2
+ ┃ ┣ 📂3mf
+ ┃ ┃ ┣ 📂deprecated
+ ┃ ┃ ┃ ┣ 📜assorted_camera_mounts.3mf
+ ┃ ┃ ┃ ┣ 📜camera_mounting_shroud v15.3mf
+ ┃ ┃ ┃ ┣ 📜camera_mounting_shroud v16.3mf
+ ┃ ┃ ┃ ┣ 📜camera_mounting_shroud_3,04mm_focal_adjust v10.3mf
+ ┃ ┃ ┃ ┣ 📜camera_mounting_shroud_3,04mm_focal_adjust v11.3mf
+ ┃ ┃ ┃ ┗ 📜rear_port_bumber v32.3mf
+ ┃ ┃ ┣ 📜adjustable_camera_shroud_mount_w_lens.3mf
+ ┃ ┃ ┣ 📜bumper_maglock_adapter v23.3mf
+ ┃ ┃ ┣ 📜bumper_maglock_adapter_cap v23.3mf
+ ┃ ┃ ┣ 📜camera_mounting_shroud v21.3mf
+ ┃ ┃ ┣ 📜joy_c_remote_adapter v22.3mf
+ ┃ ┃ ┣ 📜joy_c_remote_adapter_cap v22.3mf
+ ┃ ┃ ┣ 📜maglock_adapter_kit.3mf
+ ┃ ┃ ┣ 📜mounting_adapter_v2 v66.3mf
+ ┃ ┃ ┗ 📜rear_port_bumber v34.3mf
+ ┃ ┣ 📂f3z
+ ┃ ┃ ┗ 📜assembly v68.f3z
+ ┃ ┣ 📂step
+ ┃ ┃ ┣ 📜adjustable_camera_shroud_mount_w_lens.step
+ ┃ ┃ ┣ 📜assembly v68.step
+ ┃ ┃ ┣ 📜camera_mounting_shroud.step
+ ┃ ┃ ┣ 📜mounting_adapter_v2 v66.step
+ ┃ ┃ ┗ 📜rear_port_bumber v32.step
+ ┃ ┣ 📜38g_full_mod_kit_v2_0.2mm_PLA_MK3S_4h47m.gcode
+ ┃ ┣ 📜3g_maglock_adapter_kit_0.2mm_PLA_MK3S_29m.gcode
+ ┃ ┣ 📜mod_kit_v2.3mf
+ ┃ ┣ 📜v2.png
+ ┃ ┗ 📜v2_w_screws.png
+ ┣ 📜assembly v77.avi
+ ┣ 📜README.md
+ ┣ 📜v0_concept_phase.png
+ ┣ 📜v1.png
+ ┗ 📜v2_w_screws.png
+```
+
 # Bill of materials
 
 |Component                       |Description                                                                                                                                                |Features                                                                                                                                                           |QTY|Cost Per  [EUR]|Cost  [EUR]|
