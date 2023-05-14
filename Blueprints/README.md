@@ -1,4 +1,20 @@
-# CAD, ELE, FW, HOW-TO
+# Blueprints
+
+## CAD, ELE, FW, HOW-TO
+
+### Blueprints Tree
+
+```
+📦Blueprints
+ ┣ 📂CAD
+ ┣ 📂Figures
+ ┣ 📂Firmware
+ ┣ 📂Godot
+ ┣ 📂Install
+ ┣ 📂Testing
+ ┣ 📜stream_mjpeg_ws.py
+ ┗ 📜README.md
+```
 
 # Pi-Side Setup
 

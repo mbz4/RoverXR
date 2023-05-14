@@ -1,4 +1,4 @@
-# Thesis Writeup Soon TM
+# Thesisaurus Tree
 
 ```
  ┣ 📂Future
