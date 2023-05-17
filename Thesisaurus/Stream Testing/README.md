@@ -1,5 +1,27 @@
 # Stream Testing
 
+
+![alt text](https://fwtbbmf399.execute-api.us-east-1.amazonaws.com/Prod/svg?source=https://raw.githubusercontent.com/vitalibo/markdown-inline-svg/master/readme.md&name=sample.svg)
+
+<details> 
+<summary>SVG code</summary>
+
+```
+@sample.svg
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="121px" height="81px" viewBox="-0.5 -0.5 121 81" style="background-color: rgb(255, 255, 255);">
+    <defs/>
+    <g>
+        <ellipse cx="60" cy="40" rx="60" ry="40" fill="#ffffff" stroke="#000000" pointer-events="all"/>
+    </g>
+</svg>
+@sample.svg
+```
+
+</details>
+
+
 |Tested date |Application |Arguments                                                                                                                                                |Network Router                                                                                                     |Frequency  Range|Measured  px2px  delay [ms]|Device source                                                                               |Source platform              |Device sink                                                                                           |Sink platform          |Sink application                                 |Sink application arguments                                                                                          |Source sensor                                                                                              |Stream Resolution|Encoding|Protocol |Git source                                                                                                          |Git sink                                                                                                                  |Comments                                                                                                                                                           |
 |------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|----------------|---------------------------|--------------------------------------------------------------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------|-----------------------|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------------|--------|---------|--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |15. 03. 2023|DroidCam OBS|tcp IP (set in OBS)                                                                                                                                      |[GL-SF1200 Dual-band gigabit Router](https://www.gl-inet.com/products/gl-sf1200/)                                  |5GHz            |160                        |[Samsung Galaxy Note10](https://www.gsmarena.com/samsung_galaxy_note10-9788.php)            |Android 12                   |[OMEN Laptop 15-en1013dx Product Specifications](https://support.hp.com/ee-en/document/c07073462#AbT0)|64-bit Ubuntu 20.04 LTS|OBS 29.0.2                                       |MJPEG, use WiFi IP, Enable audio, Allow hardware acceleration, deactivate when not showing                          |[Samsung 12M Ultrawide AF Camera Module](https://www.samsungsem.com/global/product/module/camera-module.do)|1920x1080        |MJPEG   |TCP      |[droidcam-obs-git](https://github.com/dev47apps/droidcam-obs-plugin)                                                |[obs-studio-git](https://github.com/obsproject/obs-studio)                                                                |butter smooth, crystal clear, fast                                                                                                                                 |
