@@ -1,5 +1,8 @@
 # Future Work Recommendations
 
+
+![graphic](./concept_design_sketch.svg)
+
 |Title                           |Key points                 |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |--------------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |RoverXR  Hardware  Modifications|Integrate Pi Zero 2 W      |Possible to bypass and omit M5 Stick C on the Rover and Remote. Zero 2 W could directly convey driving commands from VR  using a second websocket stream. The M5 Rovers battery can power the Zero 2 W directly. Improved multithreading enables more complex teleoperation solutions.                                                                                                                                                                                     |
