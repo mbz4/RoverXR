@@ -6,7 +6,7 @@ Teleoperation { Low-Latency Video + Virtual Scene + M5 Rover C Pro} Fun
 
 # Repository tree
 
-```
+```bash
 📦RoverXR (edu_teleop_demo)
  ┣ 📂Blueprints
  ┃ ┣ 📂CAD
@@ -23,7 +23,8 @@ Teleoperation { Low-Latency Video + Virtual Scene + M5 Rover C Pro} Fun
  ┃ ┣ 📂Stream Testing
  ┃ ┣ 📂Survey
  ┃ ┣ 📂Workload Analysis
- ┃ ┗ 📜README.md
+ ┃ ┣ 📜README.md
+ ┃ ┗ 📜Zorec_XR_teleop_demo_dev_MSC.pdf
  ┣ 📜LICENSE
  ┗ 📜README.md
 ```
