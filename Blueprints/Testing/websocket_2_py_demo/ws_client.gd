@@ -1,7 +1,7 @@
 extends Node
 
 var socket = WebSocketPeer.new()
-var ws_url : String = "ws://192.168.199.228:3333"
+var ws_url : String = "ws://192.168.8.152:3333"
 
 # stream fps vars
 var meas_fps_start = Time.get_ticks_msec()
@@ -10,7 +10,7 @@ var fps_update_interval = 1000 # ms
 var fps_counter : int = 0
 var time_elapsed : float = 0
 var fps : float = 0
-
+var frame = Image.new()
 func _ready():
 	socket.set_inbound_buffer_size(3538944)
 	_handle_connect(0.5)
@@ -44,7 +44,7 @@ func _handle_connect(DELAY : float) -> void:
 		print("Failed to connect to %s" % [ws_url])
 
 func _handle_stream(data: PackedByteArray) -> void:
-	var frame = Image.new()
+	
 	var error = frame.load_jpg_from_buffer(data) 
 	if error == OK:
 		$"../TextureRect".texture = ImageTexture.create_from_image(frame)

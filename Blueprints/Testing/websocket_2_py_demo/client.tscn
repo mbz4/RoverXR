@@ -41,24 +41,20 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Input" type="LineEdit" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
 [node name="SendButton" type="Button" parent="VBoxContainer/HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
 text = "            Send            "
 
 [node name="Debug" type="RichTextLabel" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
