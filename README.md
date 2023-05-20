@@ -2,7 +2,7 @@
 
 ## Open Source Teleop Demo For Students
 
-Teleoperation { Low Latency Video Stream + Virtual Reality + M5 Rover C Pro} Fun
+Teleoperation { Low-Latency Video + Virtual Scene + M5 Rover C Pro} Fun
 
 # Repository tree
 
@@ -27,7 +27,6 @@ Teleoperation { Low Latency Video Stream + Virtual Reality + M5 Rover C Pro} Fun
  ┣ 📜LICENSE
  ┗ 📜README.md
 ```
-
 
 ### BibTex
 
