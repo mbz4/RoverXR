@@ -1,5 +1,9 @@
 # Thesisaurus Tree
 
+## Defense presentation link
+
+[XR TELEOP DEMO DEV](https://docs.google.com/presentation/d/17Uub06jR5xMtjwQKw79iaS7XjQxCx0AH1VZ0uDm-VvA/edit?usp=sharing)
+
 ```
  ┣ 📂Future
  ┃ ┗ 📜README.md
