@@ -16,6 +16,14 @@
  ┗ 📜README.md
 ```
 
+## Link to Pi2AR apk
+
+[Pi2AR apk](https://drive.google.com/file/d/1Cv3eQTNefOODzdWp3nt191eAGhhzpHHq/view?usp=sharing)
+
+## Link to 2D Demo scene
+
+[2D demo executable](https://drive.google.com/file/d/1c13HAShO3SVxveQqp23iWH8BzOSoECfB/view?usp=sharing)
+
 # Pi-Side Setup
 
 0. flash Raspbian Lite (32-bit) onto SD Card (class 10 recommended), then run
