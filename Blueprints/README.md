@@ -22,7 +22,7 @@
 
 ## Link to 2D Demo scene
 
-[2D demo executable](https://drive.google.com/file/d/191eZQ5DN7FxCb9ATQWYc_8gIsWrwuSSv/view?usp=sharing)
+[2D demo executable](https://drive.google.com/file/d/1SQd6SBSPiZBGjC4s-J33E9EYQUEvNkwV/view?usp=sharing)
 
 # Pi-Side Setup
 
