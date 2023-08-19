@@ -1,7 +1,7 @@
 extends Node
 
 var socket = WebSocketPeer.new()
-var ws_url : String = "ws://192.168.106.228:3333"
+var ws_url : String = "ws://192.168.233.228:3333"
 
 # stream fps vars
 var meas_fps_start = Time.get_ticks_msec()
