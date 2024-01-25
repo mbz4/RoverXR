@@ -1,5 +1,9 @@
 # RoverXR
 
+OSHW EE000002
+
+https://certification.oshwa.org/ee000002.html
+
 ## Open Source Teleop Demo For Students
 
 Teleoperation { Low-Latency Video + Virtual Scene + M5 Rover C Pro} Fun
